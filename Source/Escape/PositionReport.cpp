@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Nico Miebach 2017
 
 #include "PositionReport.h"
 #include "Gameframework/Actor.h"
