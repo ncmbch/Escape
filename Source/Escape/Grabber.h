@@ -6,8 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "Gameframework/Actor.h"
 #include "DrawDebugHelpers.h"
-#include "CollisionQueryParams.h"
-#include "Engine/World.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "Components/InputComponent.h"
 #include "Grabber.generated.h"
 
 
@@ -32,4 +32,12 @@ private:
 	// How far ahead of the player can we reach in cm
 	float Reach = 100.f;
 	
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	UInputComponent* InputComponent = nullptr;
+
+	// Ray-cast and grab whats in reach
+	void Grab();
+
+	// Called when grab is released
+	void Release();
 };
