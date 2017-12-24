@@ -32,7 +32,7 @@ void UOpenDoor::OpenDoor()
 
 void UOpenDoor::CloseDoor()
 {
-	Owner->SetActorRotation(FRotator(0.f, 0.f, 0.f));
+	Owner->SetActorRotation(FRotator(0.f, 90.f, 0.f));
 }
 
 
