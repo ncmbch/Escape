@@ -7,6 +7,8 @@
 #include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOpenRequest);
+
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ESCAPE_API UOpenDoor : public UActorComponent
@@ -28,18 +30,20 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UPROPERTY(BlueprintAssignable)
+	FOnOpenRequest OnOpenRequest;
 
 private:
 	UPROPERTY(EditAnywhere)
-		float OpenAngle = 20.f;
+	float OpenAngle = 20.f;
 
 	UPROPERTY(EditAnywhere)
-		ATriggerVolume* PressurePlate = nullptr;
+	ATriggerVolume* PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
-		float DoorCloseDelay = 0.5f;
+	float DoorCloseDelay = 0.5f;
 
-		float LastDoorOpenTime;
+	float LastDoorOpenTime;
 
 	
 	AActor* Owner = nullptr; // The owning door
